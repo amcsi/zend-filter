@@ -49,6 +49,17 @@ class BooleanTest extends \PHPUnit_Framework_TestCase
     /**
      * @param mixed $value
      * @param bool  $expected
+     * @dataProvider defaultTestProvider
+     */
+    public function testDefaultWithEmptyArray($value, $expected)
+    {
+        $filter = new BooleanFilter([]);
+        $this->assertSame($expected, $filter->filter($value));
+    }
+
+    /**
+     * @param mixed $value
+     * @param bool  $expected
      * @dataProvider noCastingTestProvider
      */
     public function testNoCasting($value, $expected)
